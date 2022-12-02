@@ -1,10 +1,10 @@
-import s from './MovieDetailsPage.module.css';
-
-import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import { Cast, OneMovieDetails, Reviews, Spinner } from 'components';
 import { useEffect, useState } from 'react';
 import { getMovieDetails } from '../../services/movieApi';
 import { useLocation } from 'react-router-dom';
+
+import s from './MovieDetailsPage.module.css';
 
 function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,17 +13,15 @@ function MovieDetailsPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // только запрос и передаем муви айди в отдельный компонент который рендерит инфу об одном фильме
+  
   useEffect(() => {
     const fetchMoviesByID = async () => {
       setIsLoading(true);
       try {
-        // console.log('movieId: ', movieId);
         const data = await getMovieDetails(movieId);
-        // console.log('databyID: ', data);
         setMovie(data);
       } catch (error) {
-        console.log(error.message);
+       
       } finally {
         setIsLoading(false);
       }

@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
+
+import { useParams } from 'react-router-dom';
 import { Spinner } from 'components';
 import { getActors } from '../../services/movieApi';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 import s from './Cast.module.css';
 
 function Cast() {
@@ -14,10 +16,8 @@ function Cast() {
       setIsLoading(true);
       try {
         const data = await getActors(movieId);
-        // console.log('ActorsArray: ', data.cast);
         setActors(data.cast);
       } catch (error) {
-        console.log(error.message);
       } finally {
         setIsLoading(false);
       }

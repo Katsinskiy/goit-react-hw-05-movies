@@ -9,7 +9,6 @@ const instance = axios.create({
 
 export const getTrendingMovies = async () => {
   const { data } = await instance.get('/trending/movie/day');
-  // console.log('data: ', data);
   return data.results;
 };
 
@@ -20,12 +19,11 @@ export const searchMovies = async (query, page = 1) => {
       page,
     },
   });
-  //api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_THEMOVIE_API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`
   return data.results;
 };
 export const getMovieDetails = async movie_id => {
   const { data } = await instance.get(`/movie/${movie_id}`);
-  // const { data } = await instance.get(`/movie/`, { params: { movieId } });
+ 
 
   return data;
 };

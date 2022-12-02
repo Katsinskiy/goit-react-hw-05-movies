@@ -1,7 +1,10 @@
 import { Spinner } from 'components';
+
 import { getReviews } from '../../services/movieApi';
+
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
 import s from './Reviews.module.css';
 
 function Reviews() {
@@ -17,7 +20,7 @@ function Reviews() {
 
         setReviews(data);
       } catch (error) {
-        console.log(error.message);
+        
       } finally {
         setIsLoading(false);
       }

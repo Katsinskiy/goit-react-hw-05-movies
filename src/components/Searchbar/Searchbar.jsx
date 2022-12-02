@@ -1,10 +1,11 @@
-import s from './Searchbar.module.css';
 import { BsSearch } from 'react-icons/bs';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { searchMovies } from '../../services/movieApi';
 import { MoviesList, Spinner } from 'components';
 import { toast } from 'react-toastify';
+
+import s from './Searchbar.module.css';
 
 const Searchbar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,7 +27,7 @@ const Searchbar = () => {
         }
         setMovies(data);
       } catch (error) {
-        console.log(error.message);
+        
       } finally {
         setIsLoading(false);
       }
@@ -36,18 +37,13 @@ const Searchbar = () => {
     }
   }, [query]);
 
-  // const handledInputChange = e => {
-  //   setQuery(e.currentTarget.value.toLowerCase());
-  // };
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const nextParams =
       inputRef.current.value !== '' ? { query: inputRef.current.value } : '';
-    // console.log('inputRef.current.value', inputRef.current.value);
     setSearchParams(nextParams);
-    console.log('nextParams: ', nextParams);
 
     if (!nextParams) {
       toast.error(`Search field is empty`, { theme: 'colored' });
@@ -63,8 +59,6 @@ const Searchbar = () => {
           </button>
 
           <input
-            // onChange={handledInputChange}
-            // value={query}
             ref={inputRef}
             className={s.input}
             type="text"

@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
+
 import { menuItems } from './MenuItems';
 import PropTypes from 'prop-types';
+
 import s from './Header.module.css';
 
 const getLinkClassName = props => {

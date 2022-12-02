@@ -24,14 +24,12 @@
 .link:hover {
   scale: 1.1;
 }
-/* .link:not(:last-child) {
-  margin-right: 20px;
-} */
+
 
 .activeLink {
   composes: link;
   margin-right: 20px;
   background-color: rgb(70, 1, 1);
   color: #ffffff;
-  /* border: 4px solid rgb(180, 159, 248); */
+ 
 }

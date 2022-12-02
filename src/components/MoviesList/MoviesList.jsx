@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import s from './MoviesList.module.css';
+
 import PropTypes from 'prop-types';
+import s from './MoviesList.module.css';
 
 function MoviesList({ movies }) {
   const location = useLocation();
