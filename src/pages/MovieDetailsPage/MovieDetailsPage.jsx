@@ -18,10 +18,11 @@ function MovieDetailsPage() {
     const fetchMoviesByID = async () => {
       setIsLoading(true);
       try {
+
         const data = await getMovieDetails(movieId);
+        
         setMovie(data);
       } catch (error) {
-       
       } finally {
         setIsLoading(false);
       }
