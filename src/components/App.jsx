@@ -1,34 +1,34 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-
-import Header from './Header/Header';
-import Spinner from './Spinner/Spinner';
-
 import 'react-toastify/dist/ReactToastify.css';
-import 'modern-normalize/modern-normalize.css';
-
+import Header from './Header/Header';
+import Container from './Container/Container';
+import Spinner from '../components/Spinner/Spinner';
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-const MovieDetailsPage = lazy(() =>
-  import('../pages/MovieDetailsPage/MovieDetailsPage')
-);
 const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
+const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage/MovieDetailsPage'));
+const Cast = lazy(() => import('../components/Cast/Cast'));
+const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
   return (
-    <div>
+    <Container>
       <Header />
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
       <ToastContainer autoClose={2500} hideProgressBar />
-    </div>
+    </Container>
   );
 };
 

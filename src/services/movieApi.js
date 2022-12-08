@@ -1,38 +1,38 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: 'https://api.themoviedb.org/3/',
   params: {
-    api_key: 'eb87ea8e65ad3520d4ba03c42b454490',
+    api_key: '34dbf9d1a3fd74b10bf7ab9eec59866f',
+    language: 'en-US',
   },
 });
 
 export const getTrendingMovies = async () => {
-  const { data } = await instance.get('/trending/movie/day');
-  return data.results;
+  const { data } = await instance('/trending/movie/week');
+  return data;
 };
 
-export const searchMovies = async (query, page = 1) => {
-  const { data } = await instance.get('/search/movie', {
+export const getMoviesBySearch = async (query, page = 1) => {
+  const { data } = await instance('/search/movie', {
     params: {
       query,
       page,
     },
   });
-  return data.results;
-};
-export const getMovieDetails = async movie_id => {
-  const { data } = await instance.get(`/movie/${movie_id}`);
- 
-
   return data;
 };
 
-export const getActors = async movie_id => {
-  const { data } = await instance.get(`/movie/${movie_id}/credits`);
+export const getMovieById = async movieId => {
+  const { data } = await instance(`/movie/${movieId}`);
   return data;
 };
-export const getReviews = async movie_id => {
-  const { data } = await instance.get(`/movie/${movie_id}/reviews`);
-  return data.results;
+export const getMovieCast = async movieId => {
+  const { data } = await instance(`/movie/${movieId}/credits`);
+  return data;
+};
+
+export const getMovieReviews = async movieId => {
+  const { data } = await instance(`/movie/${movieId}/reviews`);
+  return data;
 };
