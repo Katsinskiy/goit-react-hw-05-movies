@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getMovieCast } from '../../services/movieApi';
 import Spinner from '../Spinner/Spinner';
 import s from './Cast.module.css';
+
 const CastPage = () => {
   const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(false);

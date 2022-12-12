@@ -1,6 +1,7 @@
-import s from './MovieSearchForm.module.css';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+import s from './MovieSearchForm.module.css';
+
 const MovieSearchForm = ({ catchSubmitInfo }) => {
   const [query, setQuery] = useState('');
 

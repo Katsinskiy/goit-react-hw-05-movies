@@ -1,5 +1,6 @@
 import s from './MovieDetails.module.css';
 import PropTypes from 'prop-types';
+
 const MovieDetails = ({ id, title, poster_path, release_date, vote_average, overview, genres }) => {
   const score = (10 * vote_average).toFixed();
   const releaseYear = new Date(release_date).getFullYear();

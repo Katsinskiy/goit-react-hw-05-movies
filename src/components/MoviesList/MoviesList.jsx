@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import s from './MoviesList.module.css';
+
 import PropTypes from 'prop-types';
+import s from './MoviesList.module.css';
+
 const MovieList = ({ movies }) => {
   const elements = movies.map(({ id, title, poster_path }) => {
     poster_path

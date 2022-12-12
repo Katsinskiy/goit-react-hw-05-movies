@@ -1,10 +1,11 @@
-import s from './MovieDetailsPage.module.css';
-import PropTypes from 'prop-types';
-import MovieDetails from '../../components/MovieDetails/MovieDetails';
-import { getMovieById } from '../../services/movieApi';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Outlet, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import { getMovieById } from '../../services/movieApi';
 import Spinner from '../../components/Spinner/Spinner';
+import s from './MovieDetailsPage.module.css';
 
 const getLinkClassName = props => {
   const { isActive } = props;

@@ -1,8 +1,9 @@
-import s from './Reviews.module.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getMovieReviews } from '../../services/movieApi';
 import Spinner from '../Spinner/Spinner';
+import s from './Reviews.module.css';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
